@@ -11,6 +11,11 @@
         <div class="container" style="max-width: 400px; text-align: center; margin-top: 10px;">
             <form action="checkLogin.php" method="POST">
                 <h2>Login</h2>
+                <?php
+                if(!empty($_SESSION['msg'])) {
+                    echo '<p style="color: red;"> '.$_SESSION['msg'].'</p>';
+                    unset($_SESSION['msg']);
+                }?> 
                 <input type="text" class="form-control" style="margin: 2%;" name="username" id="username" placeholder="Username">
                 <input type="password" class="form-control" style="margin: 2%;" name="password" id="password" placeholder="Password">
                 <input type="submit" class="btn btn-primary" value="Submit" name="login">
