@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+	<script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+ 	<title>Procedure Table</title>
+	<script>
+	$(document).ready(function() {
+		$( "#LastNinput" ).change(function() {
+
+			$.ajax({
+				url: 'searchPeople.php',
+				data: {searchLastName: $( "#LastNinput" ).val()},
+				success: function(data){
+					$('#LastNresult').html(data);
+
+				}
+			});
+		});
+
+	});
+	</script>
+</head>
+<body>
+	<h3>Enter query here</h3>
+
+	<input class="xlarge" id="queryresult" type="search" size="30" placeholder="Query input"/>
+
+	<div id="queryresult">Query Result</div>
+
+</body>
+</html>
