@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+	<script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+ 	<title>Nurse Table</title>
+	<script>
+	$(document).ready(function() {
+    $( "#nNameInput" ).change(function() {
+
+          $.ajax({
+            url: 'viewNurses.php',
+            data: {searchName: $( "#nNameInput" ).val()},
+            success: function(data){
+              $('#nNameResult').html(data);
+            }
+          });
+        });
+	});
+	</script>
+</head>
+<body>
+  <h3>Search Nurses</h3>
+
+  <input class="xlarge" id="nNameInput" type="search" size="30" placeholder="Name contains"/>
+
+	<div id="nNameResult">Nurses Search Result</div>
+
+</body>
+</html>
