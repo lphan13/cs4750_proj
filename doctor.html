@@ -7,6 +7,7 @@
  	<title>Doctor Table</title>
 	<script>
 	$(document).ready(function() {
+<<<<<<< HEAD
 		$( "#LastNinput" ).change(function() {
 
 			$.ajax({
@@ -14,6 +15,15 @@
 				data: {searchLastName: $( "#LastNinput" ).val()},
 				success: function(data){
 					$('#LastNresult').html(data);
+=======
+		$( "#dNameInput" ).change(function() {
+
+			$.ajax({
+				url: 'viewDoctors.php',
+				data: {searchName: $( "#dNameInput" ).val()},
+				success: function(data){
+					$('#dNameResult').html(data);
+>>>>>>> e2c5c5938d37789136fac44a94dac77a3312e341
 
 				}
 			});
@@ -23,11 +33,19 @@
 	</script>
 </head>
 <body>
+<<<<<<< HEAD
 	<h3>Enter query here</h3>
 
 	<input class="xlarge" id="queryresult" type="search" size="30" placeholder="Query input"/>
 
 	<div id="queryresult">Query Result</div>
+=======
+  <h3>Search Doctors</h3>
+
+  <input class="xlarge" id="dNameInput" type="search" size="30" placeholder="Name contains"/>
+
+	<div id="dNameResult">Doctors Search Result</div>
+>>>>>>> e2c5c5938d37789136fac44a94dac77a3312e341
 
 </body>
 </html>

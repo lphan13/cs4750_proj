@@ -7,6 +7,7 @@
  	<title>Patient Table</title>
 	<script>
 	$(document).ready(function() {
+<<<<<<< HEAD
 		$( "#LastNinput" ).change(function() {
 
 			$.ajax({
@@ -19,15 +20,34 @@
 			});
 		});
 
+=======
+    $( "#pNameInput" ).change(function() {
+          $.ajax({
+            url: 'viewPatients.php',
+            data: {searchName: $( "#pNameInput" ).val()},
+            success: function(data){
+              $('#pNameResult').html(data);
+            }
+          });
+        });
+>>>>>>> e2c5c5938d37789136fac44a94dac77a3312e341
 	});
 	</script>
 </head>
 <body>
+<<<<<<< HEAD
 	<h3>Enter query here</h3>
 
 	<input class="xlarge" id="queryresult" type="search" size="30" placeholder="Query input"/>
 
 	<div id="queryresult">Query Result</div>
+=======
+  <h3>View Patients</h3>
+
+  <input class="xlarge" id="pNameInput" type="search" size="30" placeholder="Name contains"/>
+
+	<div id="pNameResult">Patients Search Result</div>
+>>>>>>> e2c5c5938d37789136fac44a94dac77a3312e341
 
 </body>
 </html>

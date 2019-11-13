@@ -7,6 +7,7 @@
  	<title>Procedure Table</title>
 	<script>
 	$(document).ready(function() {
+<<<<<<< HEAD
 		$( "#LastNinput" ).change(function() {
 
 			$.ajax({
@@ -18,16 +19,35 @@
 				}
 			});
 		});
+=======
+    $( "#roomNoInput" ).change(function() {
+  			$.ajax({
+  				url: 'viewProcedures.php',
+  				data: {searchNumber: $( "#roomNoInput" ).val()},
+  				success: function(data){
+  					$('#procedureResult').html(data);
+  				}
+  			});
+  		});
+>>>>>>> e2c5c5938d37789136fac44a94dac77a3312e341
 
 	});
 	</script>
 </head>
 <body>
+<<<<<<< HEAD
 	<h3>Enter query here</h3>
 
 	<input class="xlarge" id="queryresult" type="search" size="30" placeholder="Query input"/>
 
 	<div id="queryresult">Query Result</div>
+=======
+  <h3>Search Procedure</h3>
+
+	<input class="xlarge" id="roomNoInput" type="search" size="30" placeholder="Room Number"/>
+
+	<div id="procedureResult">Procedure Search Result</div>
+>>>>>>> e2c5c5938d37789136fac44a94dac77a3312e341
 
 </body>
 </html>
