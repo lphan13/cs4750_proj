@@ -7,27 +7,23 @@
  	<title>Shifts Table</title>
 	<script>
 	$(document).ready(function() {
-		$( "#LastNinput" ).change(function() {
+    $( "#staffId" ).change(function() {
+      $.ajax({
+        url: 'viewShifts.php',
+        data: {searchId: $( "#staffId" ).val()},
+        success: function(data){
+          $('#queryresult').html(data);
 
-			$.ajax({
-				url: 'searchPeople.php',
-				data: {searchLastName: $( "#LastNinput" ).val()},
-				success: function(data){
-					$('#LastNresult').html(data);
-
-				}
-			});
-		});
-
+        }
+      });
+    });
 	});
 	</script>
 </head>
 <body>
-	<h3>Enter query here</h3>
-
-	<input class="xlarge" id="queryresult" type="search" size="30" placeholder="Query input"/>
-
-	<div id="queryresult">Query Result</div>
+	<h3>Search Shift by Doctor Id</h3>
+	<input class="xlarge" id="staffId" type="search" size="30" placeholder="Doctor Id"/>
+  <div id="queryresult">Query Result</div>
 
 </body>
 </html>

@@ -7,27 +7,67 @@
  	<title>Medical Supply Table</title>
 	<script>
 	$(document).ready(function() {
-		$( "#LastNinput" ).change(function() {
+    // View supplies
+		$( "#supplyInput" ).change(function() {
 
 			$.ajax({
-				url: 'searchPeople.php',
-				data: {searchLastName: $( "#LastNinput" ).val()},
+				url: 'viewMedicalSupplies.php',
+				data: {searchInput: $( "#supplyInput" ).val()},
 				success: function(data){
-					$('#LastNresult').html(data);
+					$('#supplyResult').html(data);
 
 				}
 			});
 		});
 
+    // Add supply
+    $( "#addInput" ).submit(function() {
+
+			$.ajax({
+				url: 'addMedicalSupply.php',
+				data: {addName: $( "#supplyName" ).val(), addQuantity: $("#supplyQuantity").val()},
+				success: function(data){
+					$('#addMSResult').html(data);
+
+				}
+			});
+		});
+
+    // Update supply
+    $("#updateInput").submit(function() {
+      $.ajax({
+        url: 'editMedicalSupplies.php',
+        data:{updateName: $("#updateSupplyName").val(), updateQuantity: $("#updateSupplyQuantity").val()},
+        success:function(data){
+          $('#updateMSResult').html(data);
+        }
+
+      });
+    });
 	});
 	</script>
 </head>
 <body>
-	<h3>Enter query here</h3>
+	<h3>View Medical Supplies</h3>
+	<input class="xlarge" id="supplyInput" type="search" size="30" placeholder="Supply name or SID"/>
 
-	<input class="xlarge" id="queryresult" type="search" size="30" placeholder="Query input"/>
+  <h3>Add Medical Supplies</h3>
 
-	<div id="queryresult">Query Result</div>
+  <form id="addInput">
+    <input class ="xlarge" id="supplyName" type="text" size="30" placeholder="Supply Name"/>
+    <input class="xlarge" id="supplyQuantity" type="number" size="30" placeholder="Supply Quantity"/>
+    <input class="xlarge" type="submit" size="30" value="Add supply"/>
+  </form>
+
+	<!-- <div id="addMSResult"></div> -->
+
+  <h3>Update Medical Supplies</h3>
+
+  <form id="updateInput">
+    <input class ="xlarge" id="updateSupplyName" type="text" size="30" placeholder="Supply Name"/>
+    <input class="xlarge" id="updateSupplyQuantity" type="number" size="30" placeholder="Supply Quantity"/>
+    <input class="xlarge" type="submit" size="30" value="Update supply"/>
+  </form>
 
 </body>
 </html>

@@ -8,23 +8,128 @@
 	<script>
 	$(document).ready(function() {
     $( "#pNameInput" ).change(function() {
-          $.ajax({
-            url: 'viewPatients.php',
-            data: {searchName: $( "#pNameInput" ).val()},
-            success: function(data){
-              $('#pNameResult').html(data);
-            }
-          });
-        });
+      $.ajax({
+        url: 'viewPatients.php',
+        data: {searchName: $( "#pNameInput" ).val()},
+        success: function(data){
+          $('#pNameResult').html(data);
+        }
+      });
+    });
+    $( "#addPres" ).submit(function() {
+      $.ajax({
+        url: 'addPatientPres.php',
+        data: {presFrequency: $( "#presFrequency" ).val(),
+               presDosage: $( "#presDosage").val(),
+               presPId: $( "#presPId").val(),
+               presMedName: $( "#presMedName").val()},
+        success: function(data){ }
+      });
+    });
+    $( "#deletePres" ).submit(function() {
+      $.ajax({
+        url: 'deletePatientPres.php',
+        data: {pId: $( "#presPId2" ).val()},
+        success: function(data){ }
+      });
+    });
+    $( "#submitAllergy" ).submit(function() {
+      $.ajax({
+        url: 'addPatientAllergy.php',
+        data: {allergyP: $( "#allergyP" ).val(),
+               toleranceP: $( "#toleranceP").val(),
+               medNameP: $( "#medNameP").val(),
+               pIdP: $( "#pIdP").val()},
+        success: function(data){
+          $('#added').html(data);
+        }
+      });
+    });
+    $( "#deleteAllergy" ).submit(function() {
+      $.ajax({
+        url: 'deletePatientAllergy.php',
+        data: {pId: $( "#patientId" ).val(),
+               medName: $( "#medName").val()},
+        success: function(data){
+          $('#deleted').html(data);
+        }
+      });
+    });
+    $( "#pIdMeds" ).change(function() {
+      $.ajax({
+        url: 'viewPatientMeds.php',
+        data: {pId: $( "#pIdMeds" ).val()},
+        success: function(data){
+          $('#medList').html(data);
+        }
+      });
+    });
+    $( "#pIdRestrictions" ).change(function() {
+      $.ajax({
+        url: 'viewPatientRestrictions.php',
+        data: {pId: $( "#pIdRestrictions" ).val()},
+        success: function(data){
+          $('#restrictions').html(data);
+        }
+      });
+    });
 	});
 	</script>
 </head>
 <body>
   <h3>View Patients</h3>
 
-  <input class="xlarge" id="pNameInput" type="search" size="30" placeholder="Name contains"/>
+  <div id="searchPatient">
+    <h3>Search for Patient</h3>
+    <input class="xlarge" id="pNameInput" type="search" size="30" placeholder="Name contains"/>
+	   <div id="pNameResult">Patients Search Result</div>
+  </div>
 
-	<div id="pNameResult">Patients Search Result</div>
+  <form id="addPres">
+    <h3>Add Patient Prescription</h3>
+    <p><b>Values needed:</b> frequency, dosage, patient id, medicine name</p>
+    <input class="xlarge" id="presFrequency" type="text" size="30" placeholder="Frequency"/>
+    <input class="xlarge" id="presDosage" type="number" size="30" placeholder="Dosage"/>
+    <input class="xlarge" id="presPId" type="number" size="30" placeholder="Patient ID"/>
+    <input class="xlarge" id="presMedName" type="text" size="30" placeholder="Medicine Name"/>
+    <input type="submit" value="Add Prescription"/>
+  </form>
+
+  <form id="deletePres">
+    <h3>Delete Patient Prescription</h3>
+    <input class="xlarge" id="presPId2" type="number" size="30" placeholder="Patient ID"/>
+    <input type="submit" value="Delete Prescription"/>
+  </form>
+
+  <form id="submitAllergy">
+    <h3>Add Patient Allergy</h3>
+    <p><b>Values needed:</b> allergy (1/0), tolerance level (low/medium/high), medicine name, patient id</p>
+    <input class="xlarge" id="allergyP" type="number" size="30" placeholder="Allergy (0/1)"/>
+    <input class="xlarge" id="toleranceP" type="text" size="30" placeholder="Tolerance level (low/medium/high)"/>
+    <input class="xlarge" id="medNameP" type="text" size="30" placeholder="Medicine Name"/>
+    <input class="xlarge" id="pIdP" type="number" size="30" placeholder="Patient ID"/>
+    <input type="submit" value="Add Allergy"/>
+  </form>
+
+  <form id="deleteAllergy">
+    <h3>Delete Patient Allergy</h3>
+    <p><b>Values needed:</b> patient id, medicine name</p>
+    <input class="xlarge" id="patientId" type="number" size="30" placeholder="Patient ID"/>
+    <input class="xlarge" id="medName" type="text" size="30" placeholder="Medicine name"/>
+    <input type="submit" value="Delete Allergy"/>
+  </form>
+
+  <div id="viewPatientMeds">
+    <h3>View Patient Medication</h3>
+    <input class="xlarge" id="pIdMeds" type="text" size="30" placeholder="Patient ID"/>
+    <div id="medList"></div>
+  </div>
+
+  <div id="viewRestrictions">
+    <h3>View Patient Medication Restrictions</h3>
+    <input class="xlarge" id="pIdRestrictions" type="text" size="30" placeholder="Patient ID"/>
+    <div id="restrictions"></div>
+  </div>
 
 </body>
 </html>
