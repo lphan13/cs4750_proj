@@ -1,3 +1,50 @@
-html {
-   background: url(hospital.jpg) no-repeat center center fixed; 
+h1 {
+  color: #1a6fc4;
+  width:100%;
+  padding-top:25px;
+  margin-left:50px;
+}
+h5 {
+  font-size: 12px;
+  font-weight: 200;
+}
+a {
+  font-size: 20px;
+}
+a:hover {
+  color: #1a6fc4;
+  text-decoration:none;
+}
+#header-row {
+  width:100%;
+  height:15%;
+  display:inline-block;
+  margin:0;
+}
+#header-text {
+  width:80%;
+  height:100%;
+  margin:0;
+  display:inline-block;
+}
+#logout {
+  margin:0;
+  width:10%;
+  height:100%;
+  display:inline-block;
+}
+#logout-btn {
+  width:100%;
+  height:100%;
+}
+#btn {
+  margin-left:-35px;
+}
+html, body {
+    margin: 0;
+    height: 100%;
+    width:100%;
+}
+p {
+  font-weight:200;
 }

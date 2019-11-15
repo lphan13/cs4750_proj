@@ -8,31 +8,42 @@
 
   <title>CS 4750 Project Homepage</title>
 </head>
-<body>
-  <body background="hospital.jpg" style="background-size:cover">
-  <div class="container">
-  <div class="row">
-    <div class="col">
-      <h1>Welcome to the hospital database!</h1>
+<body background="hospital.jpg" style="background-size:cover;repeat:no-repeat;">
+  <div class="row" id="header-row">
+    <div class="col" id="header-text">
+      <h1>Hospital Management System</h1>
     </div>
-    <div class="col">
-      <a href="logout.php"><input type="button" class="btn btn-primary" value="Log Out"></a>
+    <div class="col" id="logout">
+      <a id="logout-btn" href="logout.php"><input id="btn" type="button" class="btn btn-primary" value="Log Out"></a>
     </div>
   </div>
-  <p>See the links to the tables below.</p>
-  <a href="doctor.html">Doctors</a>
-  <br>
-  <a href="nurse.html">Nurses</a>
-  <br>
-  <a href="patient.html">Patients</a>
-  <br>
-  <a href="medicine.html">Medicine</a>
-  <br>
-  <a href="procedure.html">Procedures</a>
-  <br>
-  <a href="shift.html">Shifts</a>
-  <br>
-  <a href="medical_supply.html">Medical Supplies</a>
+
+  <div class="container">
+    <p>See the links to the tables below.</p>
+    <a href="doctor.html">Doctors</a>
+    <br>
+    <h5>Lookup a doctor</h5>
+    <br>
+    <a href="nurse.html">Nurses</a>
+    <br>
+    <h5>Lookup a nurse</h5>
+    <br>
+    <a href="patient.html">Patients</a>
+    <br>
+    <h5>Lookup a patient, view active medications, and medical restrictions</h5>
+    <br>
+    <a href="procedure.html">Procedures</a>
+    <br>
+    <h5>Search for scheduled procedures by room no.</h5>
+    <br>
+    <a href="shift.html">Shifts</a>
+    <br>
+    <h5>Lookup staff shifts</h5>
+    <br>
+    <a href="medical_supply.html">Medical Supplies</a>
+    <br>
+    <h5>Lookup medical supply stock, add new medical supplies, and update inventory</h5>
+    <br>
   </div>
 </body>
 </html>
