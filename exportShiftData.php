@@ -1,23 +1,20 @@
 <?php
 require "dbutil.php";
 $db = DbUtil::loginConnection();
-$result = $db->query('SELECT * FROM h_shift');
-if (!$result) die('Couldn\'t fetch records!');
-$num_fields = mysqli_num_fields($result);
-$headers = array();
-for ($i = 0; $i < $num_fields; $i++) {
-    $headers[] = mysqli_fetch_field_direct($result, $i)->name;
-}
-$fp = fopen('php://output', 'w');
-if ($fp && $result) {
-    header('Content-Type: text/csv');
-    header('Content-Disposition: attachment; filename="shift_data.csv"');
-    header('Pragma: no-cache');
-    header('Expires: 0');
-    fputcsv($fp, $headers);
-    while ($row = $result->fetch_array(MYSQLI_NUM)) {
-        fputcsv($fp, array_values($row));
+$stmt = $db->stmt_init();
+if($stmt->prepare("select * from h_shift") or die(mysqli_error($db))) {
+    $stmt->execute();
+    $stmt->bind_result($start_time, $end_time, $staff_id);
+    $fp = fopen('php://output', 'w');
+    $headers = array("Start Time", "End Time", "Staff ID");
+    if ($fp) {
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment; filename="shift_data.csv"');
+        fputcsv($fp, $headers);
+        while ($row = $stmt->fetch()) {
+            fputcsv($fp, array($start_time, $end_time, $staff_id));
+        }
+        die;
     }
-    die;
 }
 ?> 
