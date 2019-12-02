@@ -54,7 +54,12 @@
     <h3>View Medical Supplies</h3>
   </div>
   <div class="container">
-	   <input class="input-field" id="supplyInput" type="search" size="30" placeholder="Supply name or SID"/>
+     <span>
+        <input class="input-field" id="supplyInput" type="search" size="30" placeholder="Supply name or SID"/>
+        <a href="exportMedicalSupplyData.php">
+          <button class="btn-sm btn-primary" style="margin-left: 2%;">Download data as CSV</button>
+        </a>
+     </span>
 	    <div id="supplyResult">Supply Search Result</div>
 
   </div>

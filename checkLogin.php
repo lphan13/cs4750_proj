@@ -21,10 +21,9 @@
             $_SESSION['valid'] = true;
             $_SESSION['timeout'] = time();
             $_SESSION['username'] = $_POST['username'];
-            $_SESSION['msg'] = 'You have entered valid use name and password';
         }
         else {
-            $_SESSION['msg'] = "Wrong username or password: username in db";
+            $_SESSION['msg'] = "Wrong username or password";
         }
     }
 ?>

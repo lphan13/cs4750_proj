@@ -84,7 +84,12 @@
   </div>
 
   <div class="container" id="searchPatient">
-    <input class="input-field" id="pNameInput" type="search" size="30" placeholder="Name contains"/>
+    <span>
+      <input class="input-field" id="pNameInput" type="search" size="30" placeholder="Name contains"/>
+      <a href="exportPatientData.php">
+        <button class="btn-sm btn-primary" style="margin-left: 2%;">Download data as CSV</button>
+      </a>
+    </span>
 	  <div id="pNameResult">Patients Search Result</div>
   </div>
 
