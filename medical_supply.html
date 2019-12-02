@@ -2,8 +2,10 @@
 
 <html>
 <head>
-    <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+  <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
 	<script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="substyle.css">
  	<title>Medical Supply Table</title>
 	<script>
 	$(document).ready(function() {
@@ -47,32 +49,48 @@
 	});
 	</script>
 </head>
-<body>
-  <h3>View Medical Supplies</h3>
-  <span><input class="xlarge" id="supplyInput" type="search" size="30" placeholder="Supply name or SID"/><a href="exportMedicalSupplyData.php"><button class="btn-sm btn-primary" style="margin-left: 2%;">Download data as CSV</button></a></span>
-	<div id="supplyResult">Supply Search Result</div>
+<body background ="medical_supply.jpg" style="background-size:cover;repeat:no-repeat;">
+  <div id="header-row">
+    <h3>View Medical Supplies</h3>
+  </div>
+  <div class="container">
+     <span>
+        <input class="input-field" id="supplyInput" type="search" size="30" placeholder="Supply name or SID"/>
+        <a href="exportMedicalSupplyData.php">
+          <button class="btn-sm btn-primary" style="margin-left: 2%;">Download data as CSV</button>
+        </a>
+     </span>
+	    <div id="supplyResult">Supply Search Result</div>
 
-  <h3>Add Medical Supplies</h3>
+  </div>
 
-  <form id="addInput">
-    <input class ="xlarge" id="supplyName" type="text" size="30" placeholder="Supply Name"/>
-    <input class="xlarge" id="supplyQuantity" type="number" size="30" placeholder="Supply Quantity"/>
-    <input class="xlarge" type="submit" size="30" value="Add supply"/>
-  </form>
+  <div id="header-row">
+    <h3>Add Medical Supplies</h3>
+  </div>
 
-  <div id="addMSResult">Supply Search Result</div>
+  <div class="container">
+    <form id="addInput">
+      <input class ="input-field" id="supplyName" type="text" size="30" placeholder="Supply Name"/>
+      <input class="input-field" id="supplyQuantity" type="number" size="30" placeholder="Supply Quantity"/>
+      <input class="input-button" type="submit" size="30" value="Add supply"/>
+    </form>
 
-	<!-- <div id="addMSResult"></div> -->
+    <div id="addMSResult">Supply Search Result</div>
+  </div>
 
-  <h3>Update Medical Supplies</h3>
+  <div id="header-row">
+    <h3>Update Medical Supplies</h3>
+  </div>
 
-  <form id="updateInput">
-    <input class ="xlarge" id="updateSupplyName" type="text" size="30" placeholder="Supply Name"/>
-    <input class="xlarge" id="updateSupplyQuantity" type="number" size="30" placeholder="Supply Quantity"/>
-    <input class="xlarge" type="submit" size="30" value="Update supply"/>
-  </form>
+  <div class="container">
+      <form id="updateInput">
+        <input class ="input-field" id="updateSupplyName" type="text" size="30" placeholder="Supply Name"/>
+        <input class="input-field" id="updateSupplyQuantity" type="number" size="30" placeholder="Supply Quantity"/>
+        <input class="input-button" type="submit" size="30" value="Update supply"/>
+      </form>
 
-  <div id="updateMSResult">Supply Search Result</div>
+      <div id="updateMSResult">Supply Search Result</div>
+  </div>
 
 </body>
 </html>
