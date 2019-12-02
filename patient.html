@@ -2,8 +2,10 @@
 
 <html>
 <head>
-    <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+  <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
 	<script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="substyle.css">
  	<title>Patient Table</title>
 	<script>
 	$(document).ready(function() {
@@ -76,60 +78,91 @@
 	});
 	</script>
 </head>
-<body>
-  <h3>View Patients</h3>
-
-  <div id="searchPatient">
-    <h3>Search for Patient</h3>
-    <input class="xlarge" id="pNameInput" type="search" size="30" placeholder="Name contains"/>
-	   <div id="pNameResult">Patients Search Result</div>
+<body background="patient.jpg" style="background-size:100% 100%;background-attachment:fixed;background-repeat:no-repeat;">
+  <div id="header-row">
+    <h3>View Patients</h3>
   </div>
 
-  <form id="addPres">
+  <div class="container" id="searchPatient">
+    <input class="input-field" id="pNameInput" type="search" size="30" placeholder="Name contains"/>
+	  <div id="pNameResult">Patients Search Result</div>
+  </div>
+
+  <div id="header-row">
     <h3>Add Patient Prescription</h3>
-    <p><b>Values needed:</b> frequency, dosage, patient id, medicine name</p>
-    <input class="xlarge" id="presFrequency" type="text" size="30" placeholder="Frequency"/>
-    <input class="xlarge" id="presDosage" type="number" size="30" placeholder="Dosage"/>
-    <input class="xlarge" id="presPId" type="number" size="30" placeholder="Patient ID"/>
-    <input class="xlarge" id="presMedName" type="text" size="30" placeholder="Medicine Name"/>
-    <input type="submit" value="Add Prescription"/>
-  </form>
-
-  <form id="deletePres">
-    <h3>Delete Patient Prescription</h3>
-    <input class="xlarge" id="presPId2" type="number" size="30" placeholder="Patient ID"/>
-    <input type="submit" value="Delete Prescription"/>
-  </form>
-
-  <form id="submitAllergy">
-    <h3>Add Patient Allergy</h3>
-    <p><b>Values needed:</b> allergy (1/0), tolerance level (low/medium/high), medicine name, patient id</p>
-    <input class="xlarge" id="allergyP" type="number" size="30" placeholder="Allergy (0/1)"/>
-    <input class="xlarge" id="toleranceP" type="text" size="30" placeholder="Tolerance level (low/medium/high)"/>
-    <input class="xlarge" id="medNameP" type="text" size="30" placeholder="Medicine Name"/>
-    <input class="xlarge" id="pIdP" type="number" size="30" placeholder="Patient ID"/>
-    <input type="submit" value="Add Allergy"/>
-  </form>
-
-  <form id="deleteAllergy">
-    <h3>Delete Patient Allergy</h3>
-    <p><b>Values needed:</b> patient id, medicine name</p>
-    <input class="xlarge" id="patientId" type="number" size="30" placeholder="Patient ID"/>
-    <input class="xlarge" id="medName" type="text" size="30" placeholder="Medicine name"/>
-    <input type="submit" value="Delete Allergy"/>
-  </form>
-
-  <div id="viewPatientMeds">
-    <h3>View Patient Medication</h3>
-    <input class="xlarge" id="pIdMeds" type="text" size="30" placeholder="Patient ID"/>
-    <div id="medList"></div>
   </div>
 
+  <div class ="container">
+    <form id="addPres">
+      <p><b>Values needed:</b> frequency, dosage, patient id, medicine name</p>
+      <input class="input-field" id="presFrequency" type="text" size="30" placeholder="Frequency"/>
+      <input class="input-field" id="presDosage" type="number" size="30" placeholder="Dosage"/>
+      <input class="input-field" id="presPId" type="number" size="30" placeholder="Patient ID"/>
+      <input class="input-field" id="presMedName" type="text" size="30" placeholder="Medicine Name"/>
+      <input class="input-button" type="submit" value="Add Prescription"/>
+    </form>
+  </div>
+
+  <div id="header-row">
+    <h3>Delete Patient Prescription</h3>
+  </div>
+
+  <div class="container">
+    <form id="deletePres">
+      <input class="input-field" id="presPId2" type="number" size="30" placeholder="Patient ID"/>
+      <input class="input-button" type="submit" value="Delete Prescription"/>
+    </form>
+  </div>
+
+  <div id="header-row">
+      <h3>Add Patient Allergy</h3>
+  </div>
+
+  <div class="container">
+    <form id="submitAllergy">
+      <p><b>Values needed:</b> allergy (1/0), tolerance level (low/medium/high), medicine name, patient id</p>
+      <input class="input-field" id="allergyP" type="number" size="30" placeholder="Allergy (0/1)"/>
+      <input class="input-field" id="toleranceP" type="text" size="30" placeholder="Tolerance level (low/medium/high)"/>
+      <input class="input-field" id="medNameP" type="text" size="30" placeholder="Medicine Name"/>
+      <input class="input-field" id="pIdP" type="number" size="30" placeholder="Patient ID"/>
+      <input class="input-button" type="submit" value="Add Allergy"/>
+    </form>
+  </div>
+
+  <div id="header-row">
+      <h3>Delete Patient Allergy</h3>
+  </div>
+
+  <div class="container">
+    <form id="deleteAllergy">
+      <p><b>Values needed:</b> patient id, medicine name</p>
+      <input class="input-field" id="patientId" type="number" size="30" placeholder="Patient ID"/>
+      <input class="input-field" id="medName" type="text" size="30" placeholder="Medicine name"/>
+      <input class="input-button" type="submit" value="Delete Allergy"/>
+    </form>
+  </div>
+
+  <div id="header-row">
+      <h3>View Patient Medication</h3>
+  </div>
+
+  <div class="container">
+    <div id="viewPatientMeds">
+      <input class="input-field" id="pIdMeds" type="text" size="30" placeholder="Patient ID"/>
+      <div id="medList"></div>
+    </div>
+  </div>
+
+  <div id="header-row">
+      <h3>View Patient Medication Restrictions</h3>
+  </div>
+
+  <div class="container">
   <div id="viewRestrictions">
-    <h3>View Patient Medication Restrictions</h3>
-    <input class="xlarge" id="pIdRestrictions" type="text" size="30" placeholder="Patient ID"/>
+    <input class="input-field" id="pIdRestrictions" type="text" size="30" placeholder="Patient ID"/>
     <div id="restrictions"></div>
   </div>
+</div>
 
 </body>
 </html>

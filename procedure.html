@@ -2,9 +2,11 @@
 
 <html>
 <head>
-    <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+  <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
 	<script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
- 	<title>Procedure Table</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="substyle.css">
+  <title>Procedure Table</title>
 	<script>
 	$(document).ready(function() {
     $( "#roomNoInput" ).change(function() {
@@ -20,12 +22,13 @@
 	});
 	</script>
 </head>
-<body>
-  <h3>Search Procedure</h3>
-
-	<input class="xlarge" id="roomNoInput" type="search" size="30" placeholder="Room Number"/>
-
-	<div id="procedureResult">Procedure Search Result</div>
-
+<body background = "procedure.jpg" style="background-size:cover;repeat:no-repeat;">
+  <div id="header-row">
+    <h3>Search Procedures</h3>
+  </div>
+  <div class="container" id="results-container">
+	   <input class="input-field" id="roomNoInput" type="search" size="30" placeholder="Room Number"/>
+     <div id="procedureResult">Procedure Search Result</div>
+  </div>
 </body>
 </html>
