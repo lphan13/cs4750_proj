@@ -1,3 +1,6 @@
+<!-- PHP documentation used as a reference to write this code :
+    https://www.php.net/manual/en/wrappers.php.php
+    https://www.geeksforgeeks.org/php-fputs-function/  -->
 <?php
 require "dbutil.php";
 $db = DbUtil::loginConnection();
