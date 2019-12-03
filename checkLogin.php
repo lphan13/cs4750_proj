@@ -7,7 +7,8 @@
         $password = $_POST['password'];
         $db = DbUtil::loginConnection();
         $stmt = $db->stmt_init();
-        if($stmt->prepare("select * from h_user where username = '$username' and password= '$password'") or die(mysqli_error($db))) {
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        if($stmt->prepare("select * from h_user where username = '$username'") or die(mysqli_error($db))) {
           $stmt->bind_param(s, $searchString);
           $stmt->execute();
           $stmt->bind_result($found_username, $found_password);
@@ -15,12 +16,15 @@
           $stmt->close();
         }
         $db->close();
-        echo "username in db: " + $found_username;
-        echo "pwd in db: " + $found_password;
-        if(!empty($found_username) && !empty($found_password)){
-            $_SESSION['valid'] = true;
-            $_SESSION['timeout'] = time();
-            $_SESSION['username'] = $_POST['username'];
+        if(!empty($found_username)){
+            if(password_verify($password, $found_password)){
+                $_SESSION['valid'] = true;
+                $_SESSION['timeout'] = time();
+                $_SESSION['username'] = $_POST['username'];
+            }
+            else {
+                $_SESSION['msg'] = "Wrong username or password";
+            }
         }
         else {
             $_SESSION['msg'] = "Wrong username or password";
