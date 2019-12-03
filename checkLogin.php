@@ -2,7 +2,7 @@
     require "dbutil.php";
     session_start();
     $msg = '';
-    if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['password'])) { 
+    if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['password'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
         $db = DbUtil::loginConnection();
@@ -38,7 +38,7 @@
         <script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
     </head>
     <body>
-    <?php 
+    <?php
         if($_SESSION['valid'] === true){
             header("Location: home.html");
         }
